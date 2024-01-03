@@ -1,0 +1,81 @@
+<%layout("./layouts/boilerplate") -%>
+<body>
+
+    The Person Details : 
+    
+    <form action="/dashbord/<%=person._id%>?_method=PUT" method="POST" class="ml-5 mr-5">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="name" class="form-control" value="<%=person.name%>"   name="person[name]" id="name" placeholder="name@example.com">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" value="<%=person.email%>" name="person[email]" placeholder="name@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="String" class="form-control" id="password" value="<%=person.password%>"  name="person[password]" placeholder="Add Password Here">
+      </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="String" class="form-control" id="phone" value="<%=person.phone%>"  name="person[phone]" placeholder="+91-1230000000">
+        </div>
+
+        <div class="col-12">
+          <div class="form-group">
+            <label for="image">Image Url</label>
+            <input type="text" class="form-control"  name="person[image]" value="<%=person.image%>" id="image"  placeholder="Enter Image Url" required>
+    
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+    
+          <div class="invalid-feedback">
+              Please enter valid URL.
+          </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender: </label>
+          <div class="form-check form-check-inline" id="gender">
+              <input class="form-check-input" type="radio" id="inlineRadio1" value="male" name="person[gender]">
+              <label class="form-check-label" for="inlineRadio1">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="inlineRadio2" value="female" name="person[gender]">
+              <label class="form-check-label" for="inlineRadio2">Female</label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="inlineRadio3" value="other" name="person[gender]">
+              <label class="form-check-label" for="inlineRadio3">Other</label>
+          </div>
+      </div>
+
+
+        <div class="col-md-6 form-check-inline">
+            <label class="mr-md-ml-2" for="inlineFormCustomSelect">City</label>
+            <select class="custom-select mr-md-2" name="person[city]" id="inlineFormCustomSelect" name="person[city]" value="<%=person.city%>">
+              <option value="mumbai">Mumbai</option>
+              <option value="pune">Pune</option>
+              <option value="ahemdabad">Ahemdabad</option>
+            </select>
+
+            <label class="mr-md-ml-2" for="inlineFormCustomSelect">   State</label>
+            <select class="custom-select mr-md-2" value="<%=person.state%>"  name="person[state]" id="inlineFormCustomSelect">
+              <option value="maharashtra">maharashtra</option>
+              <option value="maharashtra">maharashtra</option>
+              <option value="gujarat">gujarat</option>
+            </select>
+        </div>
+
+        <button class="btn-primary">
+          update
+        </button>
+
+    </form>
+
+</body>

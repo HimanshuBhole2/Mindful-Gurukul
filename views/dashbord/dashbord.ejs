@@ -1,20 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%layout("./layouts/boilerplate") -%>
 <body>
     <h1>This is dashboard</h1>
-    <br><br>
-    <% for ( let person of persons) {%>
-        <%=person.name%>
-        <%=person.email%>
-        <%=person.password%>
-        <%=person.gender%>
-        <hr>
-        <form action="/<%=person._id%>/edit" method="get"><button class="btn-primary">Show </button></form>
+    <div class="row">
+        <% for (let person of persons){%>
+            <div class="card listing-card" style="width: 18rem;">
+                <a href="/dashbord/<%=person._id%>/show">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%=person.email%></h5>
+                  <p class="card-text"><%=person.phone%></p>
+                  <h7><%=person.name%></h7>
+                  <p class="card-text">Gender: <%=person.gender%></p>
+                  <p class="card-text"><%=person.city%>, <%=person.state%></p>
+                  <a href="#" class="btn btn-dark">Delete</a>
+                </div>
+                </a>
+            </div>
         <%}%>
+    </div>
 </body>
-</html>
